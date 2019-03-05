@@ -1,0 +1,3 @@
+[submodule "inst/SPMatrix"]
+	path = inst/SPMatrix
+	url = https://github.com/cesandovalp/SPMatrix
