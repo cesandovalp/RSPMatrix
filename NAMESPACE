@@ -1,0 +1,3 @@
+useDynLib(RSPMatrix, .registration=TRUE)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)

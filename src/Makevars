@@ -1,0 +1,18 @@
+#$(SHLIB): Kernels.o
+
+#Kernels.o:
+#	nvcc -arch=sm_61 -I. -rdc=true -Xcompiler -fPIC -Xcompiler -O3 -c Kernels.cu
+#	nvcc -arch=sm_61 -dlink -Xcompiler -fPIC -o cuda_link.o Kernels.o
+
+#PKG_LIBS = Kernels.o cuda_link.o -L/opt/cuda/lib64 -lcuda -lcudart
+
+SPMatrix_DIR = ../inst
+PKG_CPPFLAGS = -std=c++11 -Wno-sign-compare -I../inst/include -fopenmp -L../inst/lib -lSPMatrix
+PKG_LIBS     = -I../inst/include -L../inst/lib -lSPMatrix -L/opt/cuda/lib64 -lcuda -lcudart
+
+all: SPMatrix $(SHLIB)
+
+SPMatrix:
+	(cd $(SPMatrix_DIR) && make static)
+
+.PHONY: SPMatrix all

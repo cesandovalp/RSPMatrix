@@ -1,0 +1,5 @@
+#cp inst/SPMatrix/include/* src 
+#cp inst/SPMatrix/src/* src 
+mv inst/SPMatrix/include ./inst/include
+mv inst/SPMatrix/src ./inst/src
+mv inst/SPMatrix/Makefile ./inst/Makefile
